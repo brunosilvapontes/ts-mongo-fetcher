@@ -1,0 +1,4 @@
+export const tokens = {
+  Logger: Symbol('Logger'),
+  MongoDBClient: Symbol('MongoDBClient')
+}
