@@ -49,12 +49,16 @@ export const fetchRecords = async (req: Request, res: Response): Promise<Respons
   endDateObject.setDate(endDateObject.getDate() + 1)
 
   const recordRepository = container.resolve(tokens.RecordRepository) as IRecordRepository
-  const records = await recordRepository.getFilteredRecords(
-    new Date(startDate),
-    endDateObject,
-    minCount,
-    maxCount,
-  )
 
-  return formatFetchResponse(res, 200, 0, 'success', records)
+  try {
+    const records = await recordRepository.getFilteredRecords(
+      new Date(startDate),
+      endDateObject,
+      minCount,
+      maxCount,
+    )
+    return formatFetchResponse(res, 200, 0, 'success', records)
+  } catch (err) {
+    return formatFetchResponse(res, 500, 10, err.message || 'error fetching data from db')
+  }
 }
