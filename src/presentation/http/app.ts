@@ -2,6 +2,8 @@ import 'express-async-errors'
 import express from 'express'
 import { router } from './routes'
 import { errorHandler } from './middlewares/errorHandler'
+import { container } from '../../di/container'
+import { tokens } from '../../di/tokens'
 
 class App {
   public express: express.Application
@@ -11,6 +13,11 @@ class App {
     this.middlewares()
     this.routes()
     this.express.use(errorHandler)
+    this.connectToDB()
+  }
+
+  private connectToDB(): void {
+    container.resolve(tokens.MongoDBClient)
   }
 
   private middlewares (): void {
