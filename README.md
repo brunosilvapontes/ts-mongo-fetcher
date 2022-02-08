@@ -3,11 +3,9 @@ Node.js API that fetches data from a MongoDB and return it formatted.
 
 It needs a `.env` file with `MONGODB_URI` env var value in order to fetch data from a MongoDB database. 
 
-## First of all
+## Testing locally:
 
 `$ npm install`
-
-## For testing locally:
 
 `$ npm run dev`
 
