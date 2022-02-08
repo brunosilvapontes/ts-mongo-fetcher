@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --extensions \".ts\" --out-dir dist --copy-files --no-copy-ignored",
+    "postinstall": "npm run build",
     "start": "DEBUG=ts-mongo-fetcher* node dist/index.js",
     "dev": "DEBUG=ts-mongo-fetcher* nodemon src/index.ts",
     "test": "jest"

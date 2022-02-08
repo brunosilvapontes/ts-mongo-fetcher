@@ -1,0 +1,1 @@
+web: DEBUG=ts-mongo-fetcher* node dist/index.js
