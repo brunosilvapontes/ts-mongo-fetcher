@@ -1,8 +1,8 @@
 import { tokens } from './tokens'
 import { container } from 'tsyringe'
-import { WinstonLogger } from 'infrastructure/logger/winstonLogger'
-import { MongoDBClient } from 'infrastructure/database/MongoDBClient'
-import { MongoRecordRepository } from 'domain/MongoRecordRepository'
+import { WinstonLogger } from '../infrastructure/logger/winstonLogger'
+import { MongoDBClient } from '../infrastructure/database/MongoDBClient'
+import { MongoRecordRepository } from '../domain/MongoRecordRepository'
 
 const childContainer = container.createChildContainer()
 

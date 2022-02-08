@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { fetchRecords } from 'domain/fetchRecordsHandler'
+import { fetchRecords } from '../../domain/fetchRecordsHandler'
 
 const router: Router = Router()
 

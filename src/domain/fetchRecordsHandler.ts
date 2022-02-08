@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
-import { formatFetchResponse, IResponse } from 'domain/Response'
-import { container } from 'di/container'
-import { tokens } from 'di/tokens'
-import { IRecordRepository } from 'domain/IRecordRepository'
+import { formatFetchResponse, IResponse } from './Response'
+import { container } from '../di/container'
+import { tokens } from '../di/tokens'
+import { IRecordRepository } from './IRecordRepository'
 
 const validatePayload = (
   startDate: string,

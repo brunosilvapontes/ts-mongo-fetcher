@@ -3,14 +3,17 @@ import { injectable } from 'tsyringe'
 
 @injectable()
 export class MongoDBClient {
-  private client: MongoClient
+  private client: MongoClient | undefined
 
   constructor() {
-    this.client = new MongoClient(process.env.MONGODB_URI as string)
-    this.client.connect()
+    const mongodbUri: string | undefined = process.env.MONGODB_URI
+    if (mongodbUri) {
+      this.client = new MongoClient(mongodbUri)
+      this.client.connect()
+    }
   }
 
   public getDB() {
-    return this.client.db()
+    return this.client?.db()
   }
 }

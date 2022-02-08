@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express'
-import { container } from 'di/container'
-import { tokens } from 'di/tokens'
-import { ILogger } from 'infrastructure/logger/ILogger'
+import { container } from '../../../di/container'
+import { tokens } from '../../../di/tokens'
+import { ILogger } from '../../../infrastructure/logger/ILogger'
 
 export function errorHandler(
   error: Error,

@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe'
 import { IRecordRepository } from './IRecordRepository'
-import { tokens } from 'di/tokens'
-import { MongoDBClient } from 'infrastructure/database/MongoDBClient'
+import { tokens } from '../di/tokens'
+import { MongoDBClient } from '../infrastructure/database/MongoDBClient'
 import { IRecordResponse } from './IRecord'
 
 @injectable()
@@ -19,9 +19,9 @@ export class MongoRecordRepository implements IRecordRepository {
     minCount: number,
     maxCount: number
   ): Promise<IRecordResponse[] | undefined> {
-    const collection = this.client.getDB().collection(this.collection)
+    const collection = this.client.getDB()?.collection(this.collection)
 
-    const records = await collection.aggregate([
+    const records = await collection?.aggregate([
       {
         $project: {
           _id: 0,
